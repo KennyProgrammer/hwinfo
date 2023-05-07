@@ -1,6 +1,6 @@
 --
 -- Main Premake5 file for building HwInfo project.
--- Copyright (c) 2023 by Danil (Kenny) Dukhovenko, All rights reserved.
+-- Copyright (c) 2020-2023 by Danil (Kenny) Dukhovenko, All rights reserved.
 --
 
 -- HwInfo C++ Project
