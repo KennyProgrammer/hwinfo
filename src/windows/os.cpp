@@ -19,13 +19,13 @@ namespace hwinfo {
 // _____________________________________________________________________________________________________________________
 std::string OS::getFullName() {
   static NTSTATUS(__stdcall * RtlGetVersion)(OUT PRTL_OSVERSIONINFOEXW lpVersionInformation) =
-      (NTSTATUS(__stdcall*)(PRTL_OSVERSIONINFOEXW))GetProcAddress(GetModuleHandle("ntdll.dll"), "RtlGetVersion");
+      (NTSTATUS(__stdcall*)(PRTL_OSVERSIONINFOEXW))GetProcAddress(GetModuleHandleW(L"ntdll.dll"), "RtlGetVersion");
   static void(__stdcall * GetNativeSystemInfo)(OUT LPSYSTEM_INFO lpSystemInfo) =
-      (void(__stdcall*)(LPSYSTEM_INFO))GetProcAddress(GetModuleHandle("kernel32.dll"), "GetNativeSystemInfo");
+      (void(__stdcall*)(LPSYSTEM_INFO))GetProcAddress(GetModuleHandleW(L"kernel32.dll"), "GetNativeSystemInfo");
   static BOOL(__stdcall * GetProductInfo)(IN DWORD dwOSMajorVersion, IN DWORD dwOSMinorVersion,
                                           IN DWORD dwSpMajorVersion, IN DWORD dwSpMinorVersion,
                                           OUT PDWORD pdwReturnedProductType) =
-      (BOOL(__stdcall*)(DWORD, DWORD, DWORD, DWORD, PDWORD))GetProcAddress(GetModuleHandle("kernel32.dll"),
+      (BOOL(__stdcall*)(DWORD, DWORD, DWORD, DWORD, PDWORD))GetProcAddress(GetModuleHandleW(L"kernel32.dll"),
                                                                            "GetProductInfo");
 
   OSVERSIONINFOEXW osvi;
