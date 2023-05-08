@@ -15,6 +15,7 @@ project "HwInfo"
 		"include/hwinfo/utils/filesystem.h",
 		"include/hwinfo/utils/stringutils.h",
 		"include/hwinfo/utils/subprocess.h",
+		"include/hwinfo/init.h",
 		"include/hwinfo/battery.h",
 		"include/hwinfo/cpu.h",
 		"include/hwinfo/cpuid.h",
@@ -27,6 +28,7 @@ project "HwInfo"
 		"include/hwinfo/ram.h",
 		"include/hwinfo/system.h",
 		"include/hwinfo/WNIwrapper.h",
+		"src/init.cpp",
 		"src/battery.cpp",
 		"src/cpu.cpp",
 		"src/disk.cpp",
@@ -37,11 +39,15 @@ project "HwInfo"
 		"src/system.cpp"
 	}
 
+	includedirs {
+		"include"
+	}
+
 	filter "system:windows"
 		systemversion "latest"
 
 		files {
-			"src/windows/utis/filesystem.cpp",
+			"src/windows/utils/filesystem.cpp",
 			"src/windows/battery.cpp",
 			"src/windows/cpu.cpp",
 			"src/windows/disk.cpp",
@@ -51,13 +57,13 @@ project "HwInfo"
 			"src/windows/ram.cpp"
 		}
 
-		defines  { 
+		defines  {
 			"_CRT_SECURE_NO_WARNINGS"
 		}
 
 	filter "system:linux"
 		files {
-			"src/linux/utis/filesystem.cpp",
+			"src/linux/utils/filesystem.cpp",
 			"src/linux/battery.cpp",
 			"src/linux/cpu.cpp",
 			"src/linux/disk.cpp",
@@ -67,9 +73,9 @@ project "HwInfo"
 			"src/linux/ram.cpp"
 		}
 
-	filter "system::macosx"
+	filter "system:macosx"
 		files {
-			"src/apple/utis/filesystem.cpp",
+			"src/apple/utils/filesystem.cpp",
 			"src/apple/battery.cpp",
 			"src/apple/cpu.cpp",
 			"src/apple/disk.cpp",
