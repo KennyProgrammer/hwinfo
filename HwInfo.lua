@@ -10,9 +10,10 @@
 project "HwInfo"
 	kind          "StaticLib"
 	language      "C++"
+	cppdialect    "C++17"
 	staticruntime "on"
-	targetdir     ("%{ForceDir.BinLib}/" .. BuildDir .. "/%{prj.name}/lib")
-	objdir        ("%{ForceDir.BinLib}/" .. BuildDir .. "/%{prj.name}/obj")
+	targetdir     ("%{ForceDir.BinLib}/" .. BuildDir .. "/%{prj.name}/Lib")
+	objdir        ("%{ForceDir.BinLib}/" .. BuildDir .. "/%{prj.name}/Obj")
 	
 	files {
 		"include/hwinfo/**.h",
